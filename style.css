@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: lightpink;
+    height: 100vh;
+    display: flex;
+    border: white 5px solid;
+    justify-content: center;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20vw;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: black;
+}
+
+.button {
+    cursor: pointer;
+    background: transparent;
+    height: 25px;
+    color: white;
+    transition: 0.25s linear;
+}
+
+.button:hover {
+    background: grey;
+}
+
+#pcMenu .button {
+    width: 100%;
+}
+
+#hamIcon {
+    border: 0;
+    background: transparent;
+    height: auto;
+    transition: 0.35s ease-in-out;
+}
+
+#hamIcon:hover {
+    transform: rotate(360deg);
+}
+#hamIcon:active{
+    transform: rotate(360deg) scale(1.25);
+    transition: 0.05s linear;
+}
+
+section {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 10vh 5vw;
+}
+
+div {
+    padding: 10px;
+}
+
+#bgPicture{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.introPicture1 {
+    background-image: url(Images/japan.jpg);
+}
+.introPicture2 {
+    background-image: url(Images/culture.jpg);
+}
+.introPicture3 {
+    background-image: url(Images/manga_anime.jpg);
+}
+
+
+
+#mobileMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 25vh;
+    padding: 0px 10px;
+    position: absolute;
+    background: black;
+    width: 100%;
+}
+
+#pcMenu {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+
+@media(max-width: 800px) {
+
+    /* mobile */
+    article {
+        border: white 3px solid;
+        padding: 5vh 2.5vw;
+    }
+
+    #topNav {
+        padding: 10px;
+    }
+
+    #hamIcon {
+        display: flex;
+    }
+
+    #pcMenu {
+        display: none
+    }
+}
+
+@media(min-width: 800px) {
+
+    /* computer */
+    article {
+        border: white 0.5vw solid;
+        padding: 10vh 5vw;
+    }
+
+    #topNav {
+        padding: 20px;
+    }
+
+    #hamIcon {
+        display: none;
+    }
+
+    #pcMenu {
+        display: flex;
+    }
+}
