@@ -11,28 +11,27 @@
 
 <body>
     <nav id="topNav">
-        <button id="hamIcon" class="button"> <img src="Images/japanicon.png" alt="Icon" width="50vh"
-                height=auto></button>
+        <button id="hamIcon" class="button"> <img src="Images/japanicon.png" alt="Icon"></button>
         <div id="pcMenu">
             <button class="button">Japan</button>
             <button class="button">Japan Culture</button>
-            <button class="button">Anime</button>
             <button class="button">Manga</button>
+            <button class="button">Anime</button>
         </div>
     </nav>
     <div id="mobileMenu">
         <button class="button">Japan</button>
         <button class="button">Japan Culture</button>
-        <button class="button">Anime</button>
         <button class="button">Manga</button>
+        <button class="button">Anime</button>
     </div>
-    <header>
+    <header id="introHeader">
         <h1>Japan</h1>
     </header>
     <div></div>
 
     <section id=introSection>
-        <div id="bgPicture" class="introPicture1">
+        <div class="bgPicture" id="introPicture1">
             <article>
                 <h2> <u>What is Japan? </u></h2>
                 <p>
@@ -50,7 +49,7 @@
             </article>
         </div>
         <div></div>
-        <div id="bgPicture" class="introPicture2">
+        <div class="bgPicture" id="introPicture2">
             <article>
                 <h2> <u>Japan's Culture</u></h2>
                 <p>
@@ -65,7 +64,7 @@
             </article>
         </div>
         <div></div>
-        <div id="bgPicture" class="introPicture3">
+        <div class="bgPicture" id="introPicture3">
             <article>
                 <h2> <u>Japan's Manga and Anime</u></h2>
                 <p>
@@ -79,15 +78,20 @@
                 </p>
             </article>
         </div>
-        <div></div>
-        
+
+        <header>
+            <h2>Want to learn more?</h2>
+        </header>
     </section>
-    <nav>
-        <button class="button">Japan</button>
-        <button class="button">Japan Culture</button>
-        <button class="button">Anime</button>
-        <button class="button">Manga</button>
-    </nav>
+    <div id="introImageButtons">
+        <button class="imageButton imageButton1">Japan Culture</button>
+        <button class="imageButton imageButton2">Manga</button>
+        <button class="imageButton imageButton3">Anime</button>
+    </div>
+    <footer>
+        <h2>Want to view this on mobile? Scan this QR Code!</h2>
+        <img id="qrCode" src="Images/qrcode.jpg" alt="QR code for mobile">
+    </footer>
 </body>
 
 </html>

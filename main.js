@@ -5,6 +5,7 @@ const menuAudio = new Audio("Audios/menuaudio.mp3");
 
 hamBtn.addEventListener("click", toggleMenus);
 
+
 window.onload = toggleMenus;
 
 function toggleMenus() { //open and close menu

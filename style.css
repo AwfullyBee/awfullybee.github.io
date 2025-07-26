@@ -5,6 +5,16 @@
 }
 
 header {
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    border: black 5px solid;
+    border-style: solid none;
+}
+
+#introHeader {
     background: lightpink;
     height: 100vh;
     display: flex;
@@ -12,7 +22,7 @@ header {
     justify-content: center;
 }
 
-header h1 {
+#introHeader h1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +38,7 @@ nav {
 .button {
     cursor: pointer;
     background: transparent;
-    height: 25px;
+    height: 5vh;
     color: white;
     transition: 0.25s linear;
 }
@@ -42,16 +52,17 @@ nav {
 }
 
 #hamIcon {
+    /* The Japan Flag Button for Mobile */
     border: 0;
     background: transparent;
-    height: auto;
     transition: 0.35s ease-in-out;
 }
 
 #hamIcon:hover {
     transform: rotate(360deg);
 }
-#hamIcon:active{
+
+#hamIcon:active {
     transform: rotate(360deg) scale(1.25);
     transition: 0.05s linear;
 }
@@ -71,10 +82,13 @@ article {
 }
 
 div {
-    padding: 10px;
+    border: black 5px solid;
+    border-style: solid none;
+    width: 100%;
 }
 
-#bgPicture{
+.bgPicture {
+    /* Background Picture for the Articles in #introSection*/
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -82,18 +96,21 @@ div {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: auto;
+    border: 0;
 }
-.introPicture1 {
+
+#introPicture1 {
     background-image: url(Images/japan.jpg);
 }
-.introPicture2 {
+
+#introPicture2 {
     background-image: url(Images/culture.jpg);
 }
-.introPicture3 {
+
+#introPicture3 {
     background-image: url(Images/manga_anime.jpg);
 }
-
-
 
 #mobileMenu {
     display: flex;
@@ -111,6 +128,57 @@ div {
     justify-content: space-evenly;
 }
 
+#introImageButtons {
+    display: flex;
+    justify-content: space-evenly;
+    background: pink;
+    border: lightpink 3px solid;
+}
+
+.imageButton {
+    color: ghostwhite;
+    border: white 3px solid;
+    text-decoration: none;
+    width: 100%;
+    background-position: center;
+    opacity: 70%;
+    transition: 0.25s linear;
+    width: 25vw;
+
+}
+
+.imageButton:hover {
+    opacity: 90%;
+    animation: buttonShake 1s;
+}
+
+.imageButton1 {
+    background-image: url(Images/buttonculture.jpg);
+    background-size: cover;
+}
+
+.imageButton2 {
+    background-image: url(Images/buttonmanga.jpg);
+    background-size: cover;
+}
+
+.imageButton3 {
+    background-image: url(Images/buttonanime.jpg);
+    background-size: cover;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: black 5px solid;
+    font-size: 2vw;
+    background: ghostwhite;
+}
+
+#qrCode {
+    width: 15%;
+}
 
 @media(max-width: 800px) {
 
@@ -118,6 +186,14 @@ div {
     article {
         border: white 3px solid;
         padding: 5vh 2.5vw;
+    }
+
+    footer {
+        display: none;
+    }
+
+    div {
+        padding: 10px;
     }
 
     #topNav {
@@ -131,6 +207,29 @@ div {
     #pcMenu {
         display: none
     }
+
+    #introImageButtons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .imageButton {
+        font-size: 5vw;
+        width: 100%;
+        padding: 5vh 0;
+        margin: 1vh;
+    }
+
+    @keyframes buttonShake {
+        33% {
+            rotate: -2.5deg
+        }
+
+        66% {
+            rotate: 2.5deg
+        }
+    }
 }
 
 @media(min-width: 800px) {
@@ -139,6 +238,12 @@ div {
     article {
         border: white 0.5vw solid;
         padding: 10vh 5vw;
+        font-size: 2vw;
+    }
+
+    div {
+        padding: 2vw;
+
     }
 
     #topNav {
@@ -151,5 +256,33 @@ div {
 
     #pcMenu {
         display: flex;
+    }
+
+    #introImageButtons {
+        flex-direction: row;
+        height: 50vh;
+        padding: 5vh 0px;
+    }
+
+    .imageButton {
+        font-size: 4vw;
+    }
+
+    .button {
+        font-size: 2vh;
+    }
+
+    header {
+        font-size: 2vw;
+    }
+
+    @keyframes buttonShake {
+        33% {
+            rotate: -10deg
+        }
+
+        66% {
+            rotate: 10deg
+        }
     }
 }
