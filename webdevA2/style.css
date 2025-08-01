@@ -1,0 +1,441 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: japanesefont;
+    object-fit: cover;
+}
+
+header {
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    border: black 5px solid;
+    border-style: solid none;
+}
+
+section h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.h2section {
+    display: none;
+}
+
+#introHeader {
+    background: lightpink;
+    height: 100vh;
+    border: white 5px solid;
+}
+
+#introHeader h1 {
+    display: flex;
+    align-items: center;
+    font-size: 20vw;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: black;
+}
+
+#topNav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.button {
+    cursor: pointer;
+    background: transparent;
+    height: 5vh;
+    color: white;
+    transition: 0.25s linear;
+}
+
+#quizButton,
+#buttonSubmit {
+    border: white 0.25vw solid;
+}
+
+.button:hover {
+    background: grey;
+}
+
+#pcMenu .button {
+    width: 100%;
+}
+
+#hamIcon {
+    /* The Japan Flag Button for Mobile */
+    border: 0;
+    background: transparent;
+    transition: 0.35s ease-in-out;
+    width: auto;
+    z-index: 1000;
+}
+
+#hamIcon:active {
+    transform: rotate(-360deg) scale(1.25);
+    transition: 0.05s;
+}
+
+section {
+    color: white;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 5vh 2.5vw;
+    /* animation happens when it enters the viewport */
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    /* anim finishes at 40% of viewport */
+}
+
+.divider {
+    /* A divider between each article */
+    border: black 5px solid;
+    border-style: solid none;
+    width: 100%;
+}
+
+.bgPicture {
+    /* Background Picture for the Articles in #introSection*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    border: 0;
+}
+
+#introPicture1 {
+    background-image: url(Images/japan.jpg);
+}
+
+#introPicture2 {
+    background-image: url(Images/culture.jpg);
+}
+
+#introPicture3 {
+    background-image: url(Images/manga_anime.jpg);
+}
+
+#mobileMenu {
+    /* Only appears for Mobile (<800px)*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 25vh;
+    padding: 0px 10px;
+    position: fixed;
+    background: black;
+    width: 100%;
+    top: 7%;
+    z-index: 1000;
+}
+
+#pcMenu {
+    /* Only appears for PC (>800px) */
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    z-index: 1000;
+}
+
+#introImageButtons {
+    /* Div that contains Image Buttons */
+    display: flex;
+    justify-content: space-evenly;
+    background: pink;
+    border: lightpink 3px solid;
+}
+
+.imageButton {
+    color: ghostwhite;
+    /* add a outline to the font */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border: white 3px solid;
+    text-decoration: none;
+    width: 100%;
+    background-position: center;
+    opacity: 70%;
+    transition: 0.25s linear;
+    width: 25vw;
+
+}
+
+.imageButton:hover {
+    opacity: 90%;
+    animation: buttonShake 1s;
+    cursor: pointer;
+}
+
+.imageButton1 {
+    background-image: url(Images/buttonculture.jpg);
+    background-size: cover;
+}
+
+.imageButton2 {
+    background-image: url(Images/buttonmanga.jpg);
+    background-size: cover;
+}
+
+.imageButton3 {
+    background-image: url(Images/buttonanime.jpg);
+    background-size: cover;
+}
+
+#cultureSection {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: black;
+}
+
+#top {
+    margin-bottom: 1.25vh;
+}
+
+.row .row-left,
+.row .row-right {
+    margin-bottom: 1.25vh;
+}
+
+#quizSection {
+    display: flex;
+    background: black;
+    justify-content: center;
+}
+
+#animeSection {
+    background: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#animeSection article {
+    display: flex;
+}
+
+
+.clickerGame {
+    height: 80vh;
+    background: black;
+    color: white;
+    border: white 3px solid;
+}
+
+#japanID {
+    position: relative;
+    width: 10vw;
+    transition: 0.5s;
+    top: 0%;
+    left: 0%;
+}
+
+/************************************************************/
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2vw;
+    background: ghostwhite;
+}
+
+footer h2 {
+    display: flex;
+    justify-content: center;
+    border: black 5px solid;
+    width: 100%;
+}
+
+#qrCode {
+    width: 15%;
+}
+
+img {
+    width: 100%;
+}
+
+.barrelRoll {
+    animation: barrelRoll 1s;
+}
+
+@keyframes barrelRoll {
+    100% {
+        rotate: 360deg;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@media(max-width: 800px) {
+    /* mobile */
+
+
+    article {
+        border: white 3px solid;
+        padding: 5vh 2.5vw;
+    }
+
+    article img {
+        border: white 1.5px solid;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .divider {
+        padding: 10px;
+    }
+
+    #topNav {
+        padding: 10px;
+    }
+
+    #hamIcon {
+        display: flex;
+    }
+
+    #pcMenu {
+        display: none
+    }
+
+    #introImageButtons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .imageButton {
+        font-size: 5vw;
+        width: 100%;
+        padding: 5vh 0;
+        margin: 1vh;
+    }
+
+    @keyframes buttonShake {
+        33% {
+            rotate: -2.5deg
+        }
+
+        66% {
+            rotate: 2.5deg
+        }
+    }
+
+    .q1 {
+        width: 25%;
+    }
+}
+
+@media(min-width: 800px) {
+    /* computer */
+
+
+    article {
+        border: white 0.5vw solid;
+        padding: 10vh 5vw;
+        font-size: 2vw;
+    }
+
+    #cultureSection article {
+        font-size: 1.5vw;
+    }
+
+    article img {
+        border: white 0.25vw solid;
+    }
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .divider {
+        padding: 2vw;
+    }
+
+
+    #hamIcon {
+        display: none;
+    }
+
+    #introImageButtons {
+        flex-direction: row;
+        height: 50vh;
+        padding: 5vh 0px;
+    }
+
+    .imageButton {
+        font-size: 4vw;
+    }
+
+    .button {
+        font-size: 2vh;
+    }
+
+    header {
+        font-size: 2vw;
+    }
+
+    @keyframes buttonShake {
+        33% {
+            rotate: -10deg
+        }
+
+        66% {
+            rotate: 10deg
+        }
+    }
+
+    #top {
+        display: flex;
+        flex: 2;
+    }
+
+    .row,
+    #bottom {
+        display: flex;
+        flex: 1;
+    }
+
+    .row-left,
+    .row-right {
+        display: flex;
+        flex: 1;
+    }
+
+    .q1 {
+        width: 50%;
+    }
+}
+
+@font-face {
+    font-family: 'japanesefont';
+    src: url('Fonts/japanesefont.ttf');
+}
