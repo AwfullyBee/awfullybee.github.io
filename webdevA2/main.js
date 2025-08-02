@@ -1,9 +1,14 @@
 const hamBtn = document.querySelector("#hamIcon");
 const introHeader = document.querySelector("#introHeader");
 const btnSubmit = document.querySelector("#buttonSubmit");
-const scoreBox = document.querySelector("#scorebox");
+const scoreBoxGame = document.querySelector("#scoreBoxGame");
+const scoreBoxQuiz = document.querySelector("#scoreBoxQuiz");
+
 const quizBtn = document.querySelector("#quizButton");
 const quizArticle = document.querySelector("#quizArticle");
+
+const leftBtn = document.querySelector(".leftButton");
+const rightBtn = document.querySelector(".rightButton");
 
 
 const btn = document.querySelectorAll(".button");
@@ -13,6 +18,7 @@ const japanCultureBtn = document.querySelectorAll(".page1Btn");
 const mangaBtn = document.querySelectorAll(".page2Btn");
 const animeBtn = document.querySelectorAll(".page3Btn");
 const pages = document.querySelectorAll(".page");
+const animeArticles = document.querySelectorAll(".animeArticle");
 
 
 const mobileMenu = document.getElementById("mobileMenu");
@@ -21,6 +27,10 @@ const japanId = document.getElementById("japanID");
 
 const menuAudio = new Audio("Audios/menuaudio.mp3");
 const hoorayAudio = new Audio("Audios/hoorayaudio.mp3");
+const popAudio = new Audio("Audios/pop.mp3");
+const wrongAudio = new Audio("Audios/wrong.mp3");
+
+
 
 
 hamBtn.addEventListener("click", toggleMenus);
@@ -30,8 +40,12 @@ window.onload = toggleMenus;
 window.onload = function () {
     toggleMenus(); // Run in once after loading to make sure mobile menu stays hidden upon entering the page
     hideall(); // Hide all pages and then set the "Japan" page as default page
-    let thepage = document.querySelector("#page3");
+    let thepage = document.querySelector("#page0");
     thepage.style.display = "inline";
+
+    hideallArticles(); // Hide all articles in Anime Page, then set "What is Anime" as default article
+    let article = document.querySelector("#animeArticle1");
+    article.style.display = "inline";
 };
 
 function toggleMenus() { //open and close menu
@@ -41,11 +55,11 @@ function toggleMenus() { //open and close menu
         mobileMenu.style.display = "none";
 }
 
-btn.forEach(function(button) { // Every Button under the .button class will make a sound
+btn.forEach(function (button) { // Every Button under the .button class will make a sound
     button.addEventListener('click', buttonSound);
 });
 
-imageBtn.forEach(function(imageButton) { // Every Button under the .button class will make a sound
+imageBtn.forEach(function (imageButton) { // Every Button under the .button class will make a sound
     imageButton.addEventListener('click', buttonSound);
 });
 
@@ -88,22 +102,22 @@ function switchPage(pg) { // function to switch pages
 }
 
 // The Buttons below are for changing pages
-japanBtn.forEach(function(japanButton) {
+japanBtn.forEach(function (japanButton) {
     japanButton.addEventListener('click', function () {
         switchPage(0);
     });
 });
-japanCultureBtn.forEach(function(japanCultureButton) {
+japanCultureBtn.forEach(function (japanCultureButton) {
     japanCultureButton.addEventListener('click', function () {
         switchPage(1);
     });
 });
-mangaBtn.forEach(function(mangaButton) {
+mangaBtn.forEach(function (mangaButton) {
     mangaButton.addEventListener('click', function () {
         switchPage(2);
     });
 });
-animeBtn.forEach(function(animeButton) {
+animeBtn.forEach(function (animeButton) {
     animeButton.addEventListener('click', function () {
         switchPage(3);
     });
@@ -169,35 +183,85 @@ function CheckAns() {
     }
     ////////////////////////////////////////////////////////////////////////////////
     // show score
-    scoreBox.innerHTML = "Score: " + score + " / 4" + "<br>You did it!";
+    scoreBoxQuiz.innerHTML = "Score: " + score + " / 4" + "<br>You did it!";
     if (score == 4) {
         hoorayAudio.play();
         quizArticle.classList.add("barrelRoll");
         setTimeout(function () {
             quizArticle.classList.remove("barrelRoll");
-        }
-            , 1000);
+        }, 1000);
     }
 
 }
 
-function GetRandom(min,max){
-//this will select a number between min and max
-return Math.round(Math.random() * (max - min)) + min;
+function getRandom(min, max) {
+    //this will select a number between min and max
+    return Math.round(Math.random() * (max - min)) + min;
 }
-function MoveFlag() {
-japanId.style.left = GetRandom(15, 85) + "vw";
-japanId.style.top = GetRandom(0, 60) + "vh";
+function moveFlag() {
+    japanId.style.left = getRandom(20, 80) + "vw";
+    japanId.style.top = getRandom(0, 60) + "vh";
 }
-setInterval(MoveFlag, 1000);
+function switchImage() {
+    let randomno = getRandom(0, 100);
+    if (randomno < 20)
+        document.getElementById('japanID').src = 'Images/notanime.jpg';
+    else
+        document.getElementById('japanID').src = 'Images/thukuna.jpg';
+    moveFlag();
+}
+setInterval(switchImage, 1000);
 
-japanId.addEventListener("click",japanCatch);
+japanId.addEventListener("click", japanCatch);
 
-var score=0; //to track how many clicks
+var score = 0; //to track how many clicks
 function japanCatch() {
-//increases score after clicking
-score++;
-//update html scorebox
-scoreBox.innerHTML = "Score: " + score;
-popAudio.play(); //play the audio!
+    console.log("Caught");
+    //increases score after clicking
+    let imageSrc = document.getElementById('japanID').src;
+    if (imageSrc.includes('Images/thukuna.jpg')) {
+        score++;
+        popAudio.currentTime = 0; // Reset to 0 when clicked again
+        popAudio.play();
+    }
+    else {
+        score--;
+        wrongAudio.currentTime = 0; // Reset to 0 when clicked again
+        wrongAudio.play();
+    }
+    //update html scorebox
+    scoreBoxGame.innerHTML = "Score: " + score;
+}
+
+
+leftBtn.addEventListener("click", animeArticleSwitch);
+rightBtn.addEventListener("click", animeArticleSwitch);
+
+var articleName = 1;
+function animeArticleSwitch(event) {
+    hideallArticles();
+
+    const clickedButton = event.currentTarget; // Check the event listener to see if the left button or right button got clicked
+
+    if (clickedButton === leftBtn) {
+        //console.log("Left button clicked");
+        if (articleName)
+            articleName--;
+        if (articleName < 1)
+            articleName = 5;
+
+    } else if (clickedButton === rightBtn) {
+        //console.log("Right button clicked");
+        articleName++;
+        if (articleName > 5)
+            articleName = 1;
+    }
+    let article = document.querySelector("#animeArticle" + articleName);
+    article.style.display = "inline";
+}
+function hideallArticles() { //function to hide all pages
+    for (let article of animeArticles) {
+        article.style.display = "none";
+        //console.log("Hidden");
+    }
 }
