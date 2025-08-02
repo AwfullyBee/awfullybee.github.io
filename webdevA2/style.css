@@ -424,6 +424,10 @@ img {
     .q1 {
         width: 50%;
     }
+    
+    #animeSection img{
+        width: 60%;
+    }
 }
 
 @font-face {
