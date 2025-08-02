@@ -2,7 +2,7 @@
     "name": "Japan",
     "short_name": "JP",
     "start_url": "index.html",
-    "display": "fullscreen",
+    "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#00FF00",
     "icons": [
@@ -12,4 +12,5 @@
             "type": "image/png"
         }
     ]
+
 }
