@@ -1,7 +1,7 @@
 {
     "name": "Japan",
     "short_name": "JP",
-    "start_url": "index.html",
+    "start_url": "/index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#00FF00",
