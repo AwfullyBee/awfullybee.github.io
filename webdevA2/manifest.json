@@ -1,13 +1,15 @@
-{ "name": "WebDev Demo14 PWA",
-"short_name": "14PWA",
-"start_url": "index.html",
-"display": "standalone",
-"background_color": "#ffffff",
-"theme_color": "#00FF00",
-"icons": [
-{ "src": "japanicon.png",
-"sizes": "64x64",
-"type": "image/png"
-}
-]
+{
+    "name": "Japan",
+    "short_name": "JP",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#00FF00",
+    "icons": [
+        {
+            "src": "Images/icons8-japan-48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
 }
