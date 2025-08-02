@@ -3,8 +3,8 @@
     "short_name": "JP",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#00FF00",
+    "background_color": "#000",
+    "theme_color": "#000",
     "icons": [
         {
             "src": "Images/icons8-japan-48.png",
